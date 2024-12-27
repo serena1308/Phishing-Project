@@ -7,13 +7,13 @@ Bob has a dog (a bull terrier) named “Shimi”. Bob really loves his dog.
 Alice has a passion for mechanics. She owns two vintage cars and often likes to parade around with her ancestral objects.
 Your mission is to get the password from Alice or Bob.
 
-Here I did a phishing page for Moodle Becode.
+Here I did a phishing page for Moodle Becode. Click on this link to see my phishing page : https://serena1308.github.io/Phishing-Project/ :) 
 
 Here are the steps to complete this project:
 
 ### 1. Reproduce the web page
 
-Below you'll find the web page that looks like a typical authentication (example: login form with username and password fields) in HTML and CSS. Here is the page: [(index.html)]
+Below you'll find the web page that looks like a typical authentication (example: login form with username and password fields) in HTML and CSS. Here is the page: [](index.html)
 
 ### 2. Webhook
 
